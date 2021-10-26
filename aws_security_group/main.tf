@@ -1,6 +1,8 @@
+
+
 resource "aws_security_group" "webserver" {
-  name = "WebServer Security Group"
-  vpc_id = aws_vpc.prod-vpc.id
+  name = var.name
+  vpc_id = var.vpc_id
 
 
   ingress   {
@@ -11,7 +13,7 @@ resource "aws_security_group" "webserver" {
   }
 
   ingress  {
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.ingress_cidr_blocks
     from_port = 22
     protocol = "tcp"
     to_port = 22
