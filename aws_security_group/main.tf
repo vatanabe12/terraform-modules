@@ -11,7 +11,7 @@ resource "aws_security_group" "webserver" {
   }
 
   ingress  {
-    cidr_blocks = aws_network.vpc_cidr
+    cidr_blocks = ["0.0.0.0/0"]
     from_port = 22
     protocol = "tcp"
     to_port = 22
